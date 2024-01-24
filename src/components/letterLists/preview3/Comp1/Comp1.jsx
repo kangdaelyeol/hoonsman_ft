@@ -31,11 +31,11 @@ const Comp1 = ({
                 color,
             })
         }
-    }, [sceneData])
+    }, [sceneData, fontSize])
 
     const messageClass = showMessage ? Style.fadeIn : ''
     const Image2Class = showDetailImage ? Style.fadeIn : ''
-
+    console.log(fontSize)
     return (
         <div
             className={`${Style.container} ${

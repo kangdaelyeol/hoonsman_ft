@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Styles from './header.module.css'
 import logoImg from '../../imgs/logo2.png'
 import teamImg from '../../imgs/hoonsman.png'
+import { useNavigate } from 'react-router-dom'
 
 import profileImg from '../../imgs/hoonpic.png'
 
@@ -9,6 +10,7 @@ const Header = () => {
     const [size, setSize] = useState(0)
     const [active, setActive] = useState(0)
     const [trigger, setTrigger] = useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         const viewWidth = document.body.offsetWidth
         const viewHeight = window.innerHeight
@@ -51,9 +53,13 @@ const Header = () => {
         }, 2500)
     }
 
+    const onLogoClick = () => {
+        navigate('/')
+    }
+
     return (
         <div className={Styles.container}>
-            <div className={Styles.logo}>
+            <div className={Styles.logo} onClick={onLogoClick}>
                 <img src={logoImg} alt="logoImg" />
             </div>
             <div className={Styles.profile} onClick={onProfileClick}>

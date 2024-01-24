@@ -13,13 +13,13 @@ const Comp4 = ({ showMessage4, sceneData, fontSize }) => {
                 fontSize:
                     messageData.size === 'small'
                         ? fontSize.small
-                        : size === 'medium'
+                        : messageData.size === 'medium'
                         ? fontSize.medium
                         : fontSize.large,
                 color: messageData.color,
             })
         }
-    }, [sceneData])
+    }, [sceneData, fontSize])
 
     const message4Class = showMessage4 ? Style.fadeIn : ''
 

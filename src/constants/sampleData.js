@@ -286,7 +286,7 @@ const SampleData = [
                 img2: s3img3,
             },
             messages: [
-                { context: '갤럭시 Z 플립 5', size: 'large', color: 'black' },
+                { context: '갤럭시 Z 플립 5', size: 'medium', color: 'black' },
             ],
         },
         s2: {
@@ -296,7 +296,7 @@ const SampleData = [
             messages: [
                 {
                     context: '최대 크기의 커버 스크린,\n플렉스 윈도우',
-                    size: 'large',
+                    size: 'medium',
                     color: 'black',
                 },
                 {
@@ -316,7 +316,7 @@ const SampleData = [
             messages: [
                 {
                     context: '안심할 수 있는 내구성',
-                    size: 'large',
+                    size: 'medium',
                     color: 'black',
                 },
                 {
@@ -331,7 +331,7 @@ const SampleData = [
             messages: [
                 {
                     context: '지금 바로 Z플립5와 함께하세요!',
-                    size: 'large',
+                    size: 'medium',
                     color: 'black',
                 },
             ],

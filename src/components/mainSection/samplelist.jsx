@@ -8,7 +8,7 @@ import intro4img from '../../imgs/template0/img1.png'
 import { sampleDefaultData } from '../../constants/sampleData'
 
 const SampleList = ({ setModalInfo, size, isDisabled }) => {
-    const [spinAction, setSpinAction] = useState(false)
+    const [spinAction, setSpinAction] = useState(0)
     useEffect(() => {
         setSpinAction(0)
         setTimeout(() => {
@@ -17,7 +17,7 @@ const SampleList = ({ setModalInfo, size, isDisabled }) => {
     }, [])
 
     useEffect(() => {
-        if (isDisabled) setSpinAction(2)
+        if (isDisabled) return setSpinAction(2)
     }, [isDisabled])
 
     const samples = [

@@ -11,6 +11,7 @@ export default function ConfirmModal({
     setIsModal,
     onCreateClick,
     isCreateLetter,
+    fontSize
 }) {
     const { type } = sceneData
     const onConfirmClick = () => {
@@ -26,16 +27,32 @@ export default function ConfirmModal({
                 <div className={Styles.title}>생성 하시겠습니까?</div>
                 <div className={Styles.view_container}>
                     {type === 0 && (
-                        <Template0 sceneData={sceneData} size={size} />
+                        <Template0
+                            sceneData={sceneData}
+                            size={size}
+                            fontSize={fontSize}
+                        />
                     )}
                     {type === 1 && (
-                        <Template1 sceneData={sceneData} size={size} />
+                        <Template1
+                            sceneData={sceneData}
+                            size={size}
+                            fontSize={fontSize}
+                        />
                     )}
                     {type === 2 && (
-                        <Template2 sceneData={sceneData} size={size} />
+                        <Template2
+                            sceneData={sceneData}
+                            size={size}
+                            fontSize={fontSize}
+                        />
                     )}
                     {type === 3 && (
-                        <Template3 sceneData={sceneData} size={size} />
+                        <Template3
+                            sceneData={sceneData}
+                            size={size}
+                            fontSize={fontSize}
+                        />
                     )}
                 </div>
                 <div className={Styles.select_bar}>

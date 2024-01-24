@@ -43,7 +43,9 @@ const Main = () => {
     }, [])
 
     const onCheckBoxClick = (e) => {
-        if (isDisabled) return e.preventDefault()
+        const checked = e?.target?.checked
+        if (isDisabled || (checked === true && isLoading))
+            return e.preventDefault()
         setIsDisabled(true)
         setTimeout(() => {
             const sliceCount = allLetter.length - pageIndex * MAX_LETTER_COUNT
@@ -109,7 +111,6 @@ const Main = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        setIsDisabled(true)
         ;(async () => {
             const result = await dbService.readAllLetter()
             const sliceCount = result.length - pageIndex * MAX_LETTER_COUNT
@@ -122,7 +123,6 @@ const Main = () => {
                 setAllLetter([...result])
                 setLetters([madeDefaultData, ...newLetters])
                 setIsLoading(false)
-                setIsDisabled(false)
             }, 1000)
         })()
     }, [refresh])

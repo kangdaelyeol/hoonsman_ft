@@ -8,15 +8,17 @@ import Template3 from './letterLists/preview3/Template3'
 import Banner from './Banner'
 import { DBService } from '../services'
 import { BASE_URL } from '../constants/config.js'
+import { FONT_SIZE } from '../constants/config.js'
 
 const dbService = new DBService(BASE_URL)
 
-export default function Letter() {
+export default function Letter({}) {
     const [trigger, setTrigger] = useState(0)
     const [isLoading, setIsloading] = useState(true)
     const [size, setSize] = useState({ width: 300, height: 600 })
     const [letter, setLetter] = useState(false)
     const [type, setType] = useState(false)
+    const [isFinish, setIsFinish] = useState(false)
     const { width, height } = size
     const params = useParams()
     const navigate = useNavigate()
@@ -57,11 +59,47 @@ export default function Letter() {
             }}
             className={Styles.container}
         >
-            {type === 0 && <Template0 sceneData={letter} size={size} />}
-            {type === 1 && <Template1 sceneData={letter} size={size} />}
-            {type === 2 && <Template2 sceneData={letter} size={size} />}
-            {type === 3 && <Template3 sceneData={letter} size={size} />}
-            <Banner viewWidth={width} />
+            {type === 0 && (
+                <Template0
+                    fontSize={FONT_SIZE}
+                    sceneData={letter}
+                    size={size}
+                    isFinish={isFinish}
+                    setIsFinish={setIsFinish}
+                    letter={true}
+                />
+            )}
+            {type === 1 && (
+                <Template1
+                    fontSize={FONT_SIZE}
+                    sceneData={letter}
+                    size={size}
+                    isFinish={isFinish}
+                    setIsFinish={setIsFinish}
+                    letter={true}
+                />
+            )}
+            {type === 2 && (
+                <Template2
+                    fontSize={FONT_SIZE}
+                    sceneData={letter}
+                    size={size}
+                    isFinish={isFinish}
+                    setIsFinish={setIsFinish}
+                    letter={true}
+                />
+            )}
+            {type === 3 && (
+                <Template3
+                    fontSize={FONT_SIZE}
+                    sceneData={letter}
+                    size={size}
+                    isFinish={isFinish}
+                    setIsFinish={setIsFinish}
+                    letter={true}
+                />
+            )}
+            <Banner viewWidth={width} isFinish={isFinish} />
         </div>
     )
 }

@@ -5,3 +5,9 @@ export const FONT_SIZE = {
     medium: '6vw',
     large: '10vw',
 }
+
+export const FONT_SIZE_CREATE = {
+    small: '14px',
+    medium: '20px',
+    large: '35px',
+}

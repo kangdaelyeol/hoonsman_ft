@@ -15,8 +15,6 @@ import {
     paintBottomPartOut,
 } from './paintAction.js'
 
-import { FONT_SIZE as FontSize } from '../../../constants/config.js'
-
 const heightArr = []
 
 const s1HeightSize = 8
@@ -410,6 +408,7 @@ const drawMessage = (
     vheight,
     sceneActive,
     messages,
+    fontSize,
 ) => {
     const messageActive = sceneActive[`s${currentScene + 1}`].messages
     const newMessageStyles = []
@@ -442,15 +441,15 @@ const drawMessage = (
                     messageActive[index].trOut[0]) *
                     (1 - opacity)
         }
-        const fontSize =
+        const size =
             m.size === 'small'
-                ? FontSize.small
+                ? fontSize.small
                 : m.size === 'medium'
-                ? FontSize.medium
-                : FontSize.large
+                ? fontSize.medium
+                : fontSize.large
 
         newMessageStyles.push({
-            fontSize,
+            fontSize: size,
             color: m.color,
             top: `${vheight / 2 + top}px`,
             opacity,
@@ -479,6 +478,7 @@ const activeScene = (
     vHeight,
     sceneActive,
     sceneData,
+    fontSize,
 ) => {
     ctx.clearRect(0, 0, vWidth, vHeight)
     ctx2.clearRect(0, 0, vWidth, vHeight)
@@ -494,6 +494,7 @@ const activeScene = (
                 vHeight,
                 sceneActive,
                 s1.messages,
+                fontSize,
             )
             break
         case 1:
@@ -505,6 +506,7 @@ const activeScene = (
                 vHeight,
                 sceneActive,
                 s2.messages,
+                fontSize,
             )
             break
         case 2:
@@ -516,13 +518,21 @@ const activeScene = (
                 vHeight,
                 sceneActive,
                 s3.messages,
+                fontSize,
             )
             break
         default:
     }
 }
 
-export default function Template0({ size, sceneData }) {
+export default function Template0({
+    size,
+    sceneData,
+    isFinish = false,
+    setIsFinish = false,
+    fontSize,
+    letter,
+}) {
     const vRef = useRef()
     const cRef = useRef()
     const s1Ref = useRef()
@@ -530,6 +540,7 @@ export default function Template0({ size, sceneData }) {
     const s3Ref = useRef()
     const c2Ref = useRef()
     const c3Ref = useRef()
+    const letterRef = useRef()
     const [isLoading, setIsLoading] = useState(true)
     const [imgs, setImgs] = useState({})
     const [messageStyles, setMessageStyles] = useState({
@@ -537,6 +548,7 @@ export default function Template0({ size, sceneData }) {
         s2: [],
         s3: [],
     })
+    const { width, height } = size
 
     useEffect(() => {
         if (
@@ -551,14 +563,13 @@ export default function Template0({ size, sceneData }) {
         )
             return
         vRef.current.scrollTo(0, 0)
-        const { width, height } = size
+
         //height 고정, 그에 대한 width 보정
         const vContainer = vRef.current
         // canvas acitve
         const ctx = cRef.current.getContext('2d')
         const ctx2 = c2Ref.current.getContext('2d')
         const ctx3 = c3Ref.current.getContext('2d')
-        // canvas sizing(for scene1)
 
         imgSizing(width, height, imgs, sceneActive)
 
@@ -600,6 +611,7 @@ export default function Template0({ size, sceneData }) {
                 height,
                 sceneActive,
                 sceneData,
+                fontSize,
             )
         }
 
@@ -609,6 +621,27 @@ export default function Template0({ size, sceneData }) {
             vContainer.removeEventListener('scroll', handleViewScroll)
         }
     }, [vRef, size, cRef, s1Ref, s2Ref, isLoading, imgs, c2Ref, s3Ref, c3Ref])
+
+    useEffect(() => {
+        console.log(letterRef)
+        if (!letterRef || !letter) return
+        const onWindowScroll = () => {
+            console.log(letterRef.current)
+            const finishHeight =
+                letterRef?.current?.getBoundingClientRect().bottom - height
+            console.log(finishHeight, height)
+            if (finishHeight < 50) {
+                if (isFinish === false) setIsFinish(true)
+            } else {
+                if (isFinish === true) setIsFinish(false)
+            }
+        }
+
+        window.addEventListener('scroll', onWindowScroll)
+        return () => {
+            window.removeEventListener('scroll', onWindowScroll)
+        }
+    }, [isFinish, letterRef])
 
     // Src Loading
     useEffect(() => {
@@ -714,105 +747,125 @@ export default function Template0({ size, sceneData }) {
                     <LoadingSpinner size={size} />
                 ) : (
                     <>
-                        <div
-                            ref={s1Ref}
-                            style={{
-                                width: `${size.width}px`,
-                                height: `${size.height}px`,
-                            }}
-                            className={Styles.scene}
-                        >
-                            <div className={Styles.intro_img}>
-                                <img
-                                    src={sceneData.s1.imgs.intro}
-                                    alt="introimage"
-                                />
-                            </div>
-                            <div className={Styles.sticky_box}>
-                                <canvas
-                                    ref={cRef}
-                                    width={size.width}
-                                    height={size.height}
-                                    className={`${Styles.scenecanvas}`}
-                                ></canvas>
+                        <div ref={letterRef}>
+                            <div
+                                ref={s1Ref}
+                                style={{
+                                    width: `${size.width}px`,
+                                    height: `${size.height}px`,
+                                }}
+                                className={Styles.scene}
+                            >
+                                <div className={Styles.intro_img}>
+                                    <img
+                                        src={sceneData.s1.imgs.intro}
+                                        alt="introimage"
+                                    />
+                                </div>
+                                <div className={Styles.sticky_box}>
+                                    <canvas
+                                        ref={cRef}
+                                        width={size.width}
+                                        height={size.height}
+                                        className={`${Styles.scenecanvas}`}
+                                    ></canvas>
 
-                                {sceneData.s1.messages.map((message, index) => {
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={Styles.scenemessage}
-                                            style={{
-                                                ...messageStyles.s1[index],
-                                            }}
-                                        >
-                                            {message.content}
-                                        </div>
-                                    )
-                                })}
+                                    {sceneData.s1.messages.map(
+                                        (message, index) => {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className={
+                                                        Styles.scenemessage
+                                                    }
+                                                    style={{
+                                                        ...messageStyles.s1[
+                                                            index
+                                                        ],
+                                                    }}
+                                                >
+                                                    {message.content}
+                                                </div>
+                                            )
+                                        },
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div
-                            ref={s2Ref}
-                            style={{
-                                width: `${size.width}px`,
-                                height: `${size.height}px`,
-                            }}
-                            width={size.width}
-                            height={size.height}
-                            className={Styles.scene}
-                        >
-                            <div className={Styles.sticky_box}>
-                                <canvas
-                                    width={size.width}
-                                    height={size.height}
-                                    ref={c2Ref}
-                                    className={`${Styles.scenecanvas}`}
-                                ></canvas>
-                                {sceneData.s2.messages.map((message, index) => {
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={Styles.scenemessage}
-                                            style={{
-                                                ...messageStyles.s2[index],
-                                            }}
-                                        >
-                                            {message.content}
-                                        </div>
-                                    )
-                                })}
+                            <div
+                                ref={s2Ref}
+                                style={{
+                                    width: `${size.width}px`,
+                                    height: `${size.height}px`,
+                                }}
+                                width={size.width}
+                                height={size.height}
+                                className={Styles.scene}
+                            >
+                                <div className={Styles.sticky_box}>
+                                    <canvas
+                                        width={size.width}
+                                        height={size.height}
+                                        ref={c2Ref}
+                                        className={`${Styles.scenecanvas}`}
+                                    ></canvas>
+                                    {sceneData.s2.messages.map(
+                                        (message, index) => {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className={
+                                                        Styles.scenemessage
+                                                    }
+                                                    style={{
+                                                        ...messageStyles.s2[
+                                                            index
+                                                        ],
+                                                    }}
+                                                >
+                                                    {message.content}
+                                                </div>
+                                            )
+                                        },
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div
-                            ref={s3Ref}
-                            style={{
-                                width: `${size.width}px`,
-                                height: `${size.height}px`,
-                            }}
-                            width={size.width}
-                            height={size.height}
-                            className={Styles.scene}
-                        >
-                            <div className={Styles.sticky_box}>
-                                <canvas
-                                    width={size.width}
-                                    height={size.height}
-                                    ref={c3Ref}
-                                    className={`${Styles.scenecanvas}`}
-                                ></canvas>
-                                {sceneData.s3.messages.map((message, index) => {
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={Styles.scenemessage}
-                                            style={{
-                                                ...messageStyles.s3[index],
-                                            }}
-                                        >
-                                            {message.content}
-                                        </div>
-                                    )
-                                })}
+                            <div
+                                ref={s3Ref}
+                                style={{
+                                    width: `${size.width}px`,
+                                    height: `${size.height}px`,
+                                }}
+                                width={size.width}
+                                height={size.height}
+                                className={Styles.scene}
+                            >
+                                <div className={Styles.sticky_box}>
+                                    <canvas
+                                        width={size.width}
+                                        height={size.height}
+                                        ref={c3Ref}
+                                        className={`${Styles.scenecanvas}`}
+                                    ></canvas>
+                                    {sceneData.s3.messages.map(
+                                        (message, index) => {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className={
+                                                        Styles.scenemessage
+                                                    }
+                                                    style={{
+                                                        ...messageStyles.s3[
+                                                            index
+                                                        ],
+                                                    }}
+                                                >
+                                                    {message.content}
+                                                </div>
+                                            )
+                                        },
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </>

@@ -32,7 +32,7 @@ const Comp3 = ({
                 fontSize:
                     messageData1.size === 'small'
                         ? fontSize.small
-                        : size === 'medium'
+                        : messageData1.size === 'medium'
                         ? fontSize.medium
                         : fontSize.large,
                 color: messageData1.color,
@@ -41,13 +41,13 @@ const Comp3 = ({
                 fontSize:
                     messageData2.size === 'small'
                         ? fontSize.small
-                        : size === 'medium'
+                        : messageData2.size === 'medium'
                         ? fontSize.medium
                         : fontSize.large,
                 color: messageData2.color,
             })
         }
-    }, [sceneData])
+    }, [sceneData, fontSize])
 
     return (
         <div

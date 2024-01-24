@@ -22,6 +22,7 @@ import { BASE_URL } from '../../constants/config'
 
 import { AIService, DBService } from '../../services'
 import CreatedModal from './CreatedModal'
+import { FONT_SIZE_CREATE } from '../../constants/config'
 
 const dbService = new DBService(BASE_URL)
 const aiService = new AIService(BASE_URL)
@@ -333,16 +334,32 @@ export default function Create() {
                         className={Styles.display__box}
                     >
                         {letter.type === 0 && (
-                            <Preview0 size={previewSize} sceneData={letter} />
+                            <Preview0
+                                size={previewSize}
+                                sceneData={letter}
+                                fontSize={FONT_SIZE_CREATE}
+                            />
                         )}
                         {letter.type === 1 && (
-                            <Preview1 size={previewSize} sceneData={letter} />
+                            <Preview1
+                                size={previewSize}
+                                sceneData={letter}
+                                fontSize={FONT_SIZE_CREATE}
+                            />
                         )}
                         {letter.type === 2 && (
-                            <Preview2 size={previewSize} sceneData={letter} />
+                            <Preview2
+                                size={previewSize}
+                                sceneData={letter}
+                                fontSize={FONT_SIZE_CREATE}
+                            />
                         )}
                         {letter.type === 3 && (
-                            <Preview3 size={previewSize} sceneData={letter} />
+                            <Preview3
+                                size={previewSize}
+                                sceneData={letter}
+                                fontSize={FONT_SIZE_CREATE}
+                            />
                         )}
                     </div>
                     <SizeBar
@@ -400,6 +417,7 @@ export default function Create() {
                         setIsModal={setIsModal}
                         onCreateClick={onCreateClick}
                         isCreateLetter={isCreateLetter}
+                        fontSize={FONT_SIZE_CREATE}
                     />
                 )}
                 {isCreated && (

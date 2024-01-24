@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Style from './Comp2.module.css'
 
-const Comp2 = ({ active, showMessage1, showMessage2, sceneData,fontSize}) => {
+const Comp2 = ({ active, showMessage1, showMessage2, sceneData, fontSize }) => {
     const [Img3Url, setImg3Url] = useState('')
     const [message1, setMessage1] = useState('')
     const [message1Style, setMessage1Style] = useState({})
@@ -11,7 +11,7 @@ const Comp2 = ({ active, showMessage1, showMessage2, sceneData,fontSize}) => {
     useEffect(() => {
         if (sceneData && sceneData.s2) {
             setImg3Url(sceneData.s2.imgs.img3)
-            sceneData.s2.forEach((message, index) => {
+            sceneData.s2.messages.forEach((message, index) => {
                 const { context, size, color } = message
                 if (index === 0) {
                     setMessage1(context)
@@ -38,7 +38,7 @@ const Comp2 = ({ active, showMessage1, showMessage2, sceneData,fontSize}) => {
                 }
             })
         }
-    }, [sceneData])
+    }, [sceneData, fontSize])
 
     return (
         <div

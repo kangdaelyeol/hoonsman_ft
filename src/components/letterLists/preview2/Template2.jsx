@@ -1,112 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import Styles from './template2.module.css'
-import { FONT_SIZE as FontSize } from '../../../constants/config.js'
-const messageMotion = {
-    s1: {
-        s1_m1: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [0, -20],
-            tyOut: [-20, -40],
-            rIn: [0.2, 0.3],
-            rOut: [0.7, 0.75],
-        },
-        s1_m2: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [60, 40],
-            tyOut: [40, 20],
-            rIn: [0.4, 0.5],
-            rOut: [0.7, 0.75],
-        },
-    },
-    s2: {
-        s2_m1: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.18, 0.2],
-            rOut: [0.28, 0.3],
-        },
-        s2_m2: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.4, 0.42],
-            rOut: [0.48, 0.5],
-        },
-        s2_m3: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.6, 0.62],
-            rOut: [0.68, 0.7],
-        },
-        s2_m4: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.8, 0.82],
-            rOut: [0.88, 0.9],
-        },
-    },
-    s3: {
-        s3_m1: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.18, 0.2],
-            rOut: [0.28, 0.3],
-        },
-        s3_m2: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.4, 0.42],
-            rOut: [0.48, 0.5],
-        },
-        s3_m3: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.6, 0.62],
-            rOut: [0.68, 0.7],
-        },
-        s3_m4: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [20, 0],
-            tyOut: [0, -20],
-            rIn: [0.8, 0.82],
-            rOut: [0.88, 0.9],
-        },
-    },
-    s4: {
-        s4_m1: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [-10, -50],
-            tyOut: [-50, -60],
-            rIn: [0.3, 0.4],
-            rOut: [0.9, 1],
-        },
-        s4_m2: {
-            opacityIn: [0, 1],
-            opacityOut: [1, 0],
-            tyIn: [70, 50],
-            tyOut: [50, 30],
-            rIn: [0.6, 0.7],
-            rOut: [0.9, 1],
-        },
-    },
-}
 
 // opacity 계산
 const calcOpacity = (ratio, opacity, ratioRange) => {
@@ -133,7 +26,7 @@ const calcTranslate = (ratio, translate, ratioRange) => {
 }
 
 // canvas에 message 그리는 함수
-const drawMessageInCavas = (ratio, mes, sceneN, mName) => {
+const drawMessageInCavas = (ratio, mes, sceneN, mName, messageMotion) => {
     const m1Boundary =
         (messageMotion[sceneN][mName].rOut[0] +
             messageMotion[sceneN][mName].rIn[1]) /
@@ -258,10 +151,116 @@ const drawImageInCanvas = (
 
 // Sample Data
 
-export default function Template2({ size, sceneData }) {
+export default function Template2({ size, sceneData, fontSize }) {
     const data = sceneData
     const { width: viewWidth, height: viewHeight } = size
-
+    const gap = viewWidth / 15
+    const messageMotion = {
+        s1: {
+            s1_m1: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [0, -20],
+                tyOut: [-20, -40],
+                rIn: [0.2, 0.3],
+                rOut: [0.7, 0.75],
+            },
+            s1_m2: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [gap, gap - 20],
+                tyOut: [gap - 20, gap - 40],
+                rIn: [0.4, 0.5],
+                rOut: [0.7, 0.75],
+            },
+        },
+        s2: {
+            s2_m1: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.18, 0.2],
+                rOut: [0.28, 0.3],
+            },
+            s2_m2: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.4, 0.42],
+                rOut: [0.48, 0.5],
+            },
+            s2_m3: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.6, 0.62],
+                rOut: [0.68, 0.7],
+            },
+            s2_m4: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.8, 0.82],
+                rOut: [0.88, 0.9],
+            },
+        },
+        s3: {
+            s3_m1: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.18, 0.2],
+                rOut: [0.28, 0.3],
+            },
+            s3_m2: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.4, 0.42],
+                rOut: [0.48, 0.5],
+            },
+            s3_m3: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.6, 0.62],
+                rOut: [0.68, 0.7],
+            },
+            s3_m4: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [20, 0],
+                tyOut: [0, -20],
+                rIn: [0.8, 0.82],
+                rOut: [0.88, 0.9],
+            },
+        },
+        s4: {
+            s4_m1: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [-10, -50],
+                tyOut: [-50, -60],
+                rIn: [0.3, 0.4],
+                rOut: [0.9, 1],
+            },
+            s4_m2: {
+                opacityIn: [0, 1],
+                opacityOut: [1, 0],
+                tyIn: [70, 50],
+                tyOut: [50, 30],
+                rIn: [0.6, 0.7],
+                rOut: [0.9, 1],
+            },
+        },
+    }
     const imageMotion = useMemo(() => {
         const obj = {
             s1: [
@@ -425,7 +424,7 @@ export default function Template2({ size, sceneData }) {
             isLoading
         )
             return
-
+        wRef.current.scrollTo(0, 0)
         const wrapperCurrent = wRef.current
 
         // 캔버스 초기 화면 설정
@@ -475,8 +474,20 @@ export default function Template2({ size, sceneData }) {
                     e.currentTarget.getBoundingClientRect().top -
                     s1Ref.current.getBoundingClientRect().top
                 const scrollRatio = scrollY / s1Ref.current.offsetHeight
-                drawMessageInCavas(scrollRatio, s1_m1Ref, 's1', 's1_m1')
-                drawMessageInCavas(scrollRatio, s1_m2Ref, 's1', 's1_m2')
+                drawMessageInCavas(
+                    scrollRatio,
+                    s1_m1Ref,
+                    's1',
+                    's1_m1',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s1_m2Ref,
+                    's1',
+                    's1_m2',
+                    messageMotion,
+                )
             }
 
             if (
@@ -492,10 +503,34 @@ export default function Template2({ size, sceneData }) {
                     s2Ref.current.getBoundingClientRect().top
                 const scrollRatio = scrollY / s2Ref.current.offsetHeight
 
-                drawMessageInCavas(scrollRatio, s2_m1Ref, 's2', 's2_m1')
-                drawMessageInCavas(scrollRatio, s2_m2Ref, 's2', 's2_m2')
-                drawMessageInCavas(scrollRatio, s2_m3Ref, 's2', 's2_m3')
-                drawMessageInCavas(scrollRatio, s2_m4Ref, 's2', 's2_m4')
+                drawMessageInCavas(
+                    scrollRatio,
+                    s2_m1Ref,
+                    's2',
+                    's2_m1',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s2_m2Ref,
+                    's2',
+                    's2_m2',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s2_m3Ref,
+                    's2',
+                    's2_m3',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s2_m4Ref,
+                    's2',
+                    's2_m4',
+                    messageMotion,
+                )
                 imageMotion['s2'].forEach((value, index) => {
                     drawImageInCanvas(
                         ctx2,
@@ -522,10 +557,34 @@ export default function Template2({ size, sceneData }) {
                     s3Ref.current.getBoundingClientRect().top
                 const scrollRatio = scrollY / s3Ref.current.offsetHeight
 
-                drawMessageInCavas(scrollRatio, s3_m1Ref, 's3', 's3_m1')
-                drawMessageInCavas(scrollRatio, s3_m3Ref, 's3', 's3_m3')
-                drawMessageInCavas(scrollRatio, s3_m2Ref, 's3', 's3_m2')
-                drawMessageInCavas(scrollRatio, s3_m4Ref, 's3', 's3_m4')
+                drawMessageInCavas(
+                    scrollRatio,
+                    s3_m1Ref,
+                    's3',
+                    's3_m1',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s3_m3Ref,
+                    's3',
+                    's3_m3',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s3_m2Ref,
+                    's3',
+                    's3_m2',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s3_m4Ref,
+                    's3',
+                    's3_m4',
+                    messageMotion,
+                )
                 imageMotion['s3'].forEach((value, index) => {
                     drawImageInCanvas(
                         ctx3,
@@ -552,8 +611,20 @@ export default function Template2({ size, sceneData }) {
                     s4Ref.current.getBoundingClientRect().top
                 const scrollRatio = scrollY / s4Ref.current.offsetHeight
 
-                drawMessageInCavas(scrollRatio, s4_m1Ref, 's4', 's4_m1')
-                drawMessageInCavas(scrollRatio, s4_m2Ref, 's4', 's4_m2')
+                drawMessageInCavas(
+                    scrollRatio,
+                    s4_m1Ref,
+                    's4',
+                    's4_m1',
+                    messageMotion,
+                )
+                drawMessageInCavas(
+                    scrollRatio,
+                    s4_m2Ref,
+                    's4',
+                    's4_m2',
+                    messageMotion,
+                )
                 imageMotion['s4'].forEach((value, index) => {
                     drawImageInCanvas(
                         ctx4,
@@ -635,7 +706,7 @@ export default function Template2({ size, sceneData }) {
         return () => {
             window.removeEventListener('load', onWindowLoad)
         }
-    }, [sceneData])
+    }, [sceneData, size])
 
     return (
         <div
@@ -651,6 +722,7 @@ export default function Template2({ size, sceneData }) {
                     'Loading...'
                 ) : (
                     <>
+                        {/* Scene 1 */}
                         <div
                             ref={s1Ref}
                             className={Styles.scene1}
@@ -678,13 +750,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene1.message[1].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene1.message[1]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene1.message[1]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene1.message[1].content}
@@ -698,13 +770,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene1.message[2].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene1.message[2]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene1.message[2]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene1.message[2].content}
@@ -738,13 +810,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene2.message[1].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene2.message[1]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene2.message[1]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[1].content}
@@ -758,13 +830,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene2.message[2].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene2.message[2]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene2.message[2]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[2].content}
@@ -778,13 +850,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene2.message[3].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene2.message[3]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene2.message[3]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[3].content}
@@ -798,13 +870,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene2.message[4].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene2.message[4]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene2.message[4]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[4].content}
@@ -838,13 +910,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene3.message[1].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene3.message[1]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene3.message[1]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[1].content}
@@ -858,13 +930,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene3.message[2].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene3.message[2]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene3.message[2]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[2].content}
@@ -878,13 +950,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene3.message[3].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene3.message[3]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene3.message[3]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[3].content}
@@ -898,13 +970,13 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene3.message[4].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene3.message[4]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene3.message[4]
                                                       .size === 'large' &&
-                                                  FontSize.large,
+                                                  fontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[4].content}
@@ -938,10 +1010,10 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene4.message[1].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene4.message[1]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene4.message[1]
                                                       .size === 'large' && 32,
                                     }}
@@ -957,10 +1029,10 @@ export default function Template2({ size, sceneData }) {
                                         fontSize:
                                             data.scene4.message[2].size ===
                                             'small'
-                                                ? FontSize.small
+                                                ? fontSize.small
                                                 : data.scene4.message[2]
                                                       .size === 'medium'
-                                                ? FontSize.medium
+                                                ? fontSize.medium
                                                 : data.scene4.message[2]
                                                       .size === 'large' && 32,
                                     }}
