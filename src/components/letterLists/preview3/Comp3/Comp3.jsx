@@ -9,6 +9,7 @@ const Comp3 = ({
     showImage2,
     showImage3,
     sceneData,
+    fontSize,
 }) => {
     const [images, setImages] = useState({})
     const [message1, setMessage1] = useState('')
@@ -28,11 +29,21 @@ const Comp3 = ({
             setMessage1(messageData1.context)
             setMessage2(messageData2.context)
             setMessage1Style({
-                fontSize: messageData1.size === 'medium' ? '12px' : '24px',
+                fontSize:
+                    messageData1.size === 'small'
+                        ? fontSize.small
+                        : size === 'medium'
+                        ? fontSize.medium
+                        : fontSize.large,
                 color: messageData1.color,
             })
             setMessage2Style({
-                fontSize: messageData2.size === 'medium' ? '12px' : '24px',
+                fontSize:
+                    messageData2.size === 'small'
+                        ? fontSize.small
+                        : size === 'medium'
+                        ? fontSize.medium
+                        : fontSize.large,
                 color: messageData2.color,
             })
         }

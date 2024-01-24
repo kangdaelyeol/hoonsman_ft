@@ -5,6 +5,7 @@ import Template0 from './letterLists/preview0/Template0'
 import Template1 from './letterLists/preview1/Template1'
 import Template2 from './letterLists/preview2/Template2'
 import Template3 from './letterLists/preview3/Template3'
+import Banner from './Banner'
 import { DBService } from '../services'
 import { BASE_URL } from '../constants/config.js'
 
@@ -60,6 +61,7 @@ export default function Letter() {
             {type === 1 && <Template1 sceneData={letter} size={size} />}
             {type === 2 && <Template2 sceneData={letter} size={size} />}
             {type === 3 && <Template3 sceneData={letter} size={size} />}
+            <Banner viewWidth={width} />
         </div>
     )
 }

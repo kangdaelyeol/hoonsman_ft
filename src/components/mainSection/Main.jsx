@@ -46,6 +46,12 @@ const Main = () => {
         if (isDisabled) return e.preventDefault()
         setIsDisabled(true)
         setTimeout(() => {
+            const sliceCount = allLetter.length - pageIndex * MAX_LETTER_COUNT
+            let newLetters
+            if (sliceCount >= MAX_LETTER_COUNT)
+                newLetters = allLetter.slice(0, MAX_LETTER_COUNT)
+            else newLetters = allLetter.slice(0, sliceCount)
+            setLetters([madeDefaultData, ...newLetters])
             setIsMadeDisplay(e?.target?.checked)
             setIsDisabled(false)
             setPageIndex(0)
@@ -103,48 +109,22 @@ const Main = () => {
 
     useEffect(() => {
         setIsLoading(true)
+        setIsDisabled(true)
         ;(async () => {
             const result = await dbService.readAllLetter()
-            setAllLetter([
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-            ])
-            const temp = [
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-                ...result,
-            ]
-            const sliceCount = temp.length - pageIndex * MAX_LETTER_COUNT
+            const sliceCount = result.length - pageIndex * MAX_LETTER_COUNT
             let newLetters
             if (sliceCount >= MAX_LETTER_COUNT)
-                newLetters = temp.splice(
-                    pageIndex * MAX_LETTER_COUNT,
-                    MAX_LETTER_COUNT,
-                )
-            else
-                newLetters = temp.splice(
-                    pageIndex * MAX_LETTER_COUNT,
-                    sliceCount,
-                )
+                newLetters = result.slice(0, MAX_LETTER_COUNT)
+            else newLetters = result.slice(0, sliceCount)
 
-            setLetters([madeDefaultData, ...newLetters])
+            setTimeout(() => {
+                setAllLetter([...result])
+                setLetters([madeDefaultData, ...newLetters])
+                setIsLoading(false)
+                setIsDisabled(false)
+            }, 1000)
         })()
-        setIsLoading(false)
     }, [refresh])
 
     return (

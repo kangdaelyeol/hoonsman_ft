@@ -15,6 +15,8 @@ import {
     paintBottomPartOut,
 } from './paintAction.js'
 
+import { FONT_SIZE as FontSize } from '../../../constants/config.js'
+
 const heightArr = []
 
 const s1HeightSize = 8
@@ -441,7 +443,11 @@ const drawMessage = (
                     (1 - opacity)
         }
         const fontSize =
-            m.size === 'small' ? '14px' : m.size === 'medium' ? '20px' : '28px'
+            m.size === 'small'
+                ? FontSize.small
+                : m.size === 'medium'
+                ? FontSize.medium
+                : FontSize.large
 
         newMessageStyles.push({
             fontSize,

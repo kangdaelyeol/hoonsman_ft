@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { FONT_SIZE as FontSize } from '../../../constants/config.js'
 import './template1.css'
 
 const IntervalTime = 2000
@@ -119,14 +120,14 @@ function Template1({ size, sceneData }) {
                             fontSize:
                                 seminarData.scenes[0].messages[0].size ===
                                 'small'
-                                    ? '12px'
+                                    ? FontSize.small
                                     : seminarData.scenes[0].messages[0].size ===
                                       'medium'
-                                    ? '18px'
+                                    ? FontSize.medium
                                     : seminarData.scenes[0].messages[0].size ===
                                       'large'
-                                    ? '24px'
-                                    : '12px',
+                                    ? FontSize.large
+                                    : FontSize.small,
                             color: seminarData.scenes[0].messages[0].color,
                         }}
                     >
@@ -182,14 +183,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[1].messages[0].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[1].messages[0]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[1].messages[0]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[1].messages[0].color,
                             }}
                         >
@@ -208,13 +209,13 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[1].messages[1].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[1].messages[1]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[1].messages[1]
                                               .size === 'large'
-                                        ? '24px'
+                                        ? FontSize.large
                                         : 'inherit',
                                 color: seminarData.scenes[1].messages[1].color,
                             }}
@@ -268,14 +269,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[2].messages[0].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[2].messages[0]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[2].messages[0]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[2].messages[0].color,
                             }}
                         >
@@ -294,14 +295,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[2].messages[1].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[2].messages[1]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[2].messages[1]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[2].messages[1].color,
                             }}
                         >
@@ -338,14 +339,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[3].messages[0].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[3].messages[0]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[3].messages[0]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[3].messages[0].color,
                             }}
                         >
@@ -364,14 +365,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[3].messages[1].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[3].messages[1]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[3].messages[1]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[3].messages[1].color,
                             }}
                         >
@@ -404,14 +405,14 @@ function Template1({ size, sceneData }) {
                                 fontSize:
                                     seminarData.scenes[4].messages[0].size ===
                                     'small'
-                                        ? '12px'
+                                        ? FontSize.small
                                         : seminarData.scenes[4].messages[0]
                                               .size === 'medium'
-                                        ? '18px'
+                                        ? FontSize.medium
                                         : seminarData.scenes[4].messages[0]
                                               .size === 'large'
-                                        ? '24px'
-                                        : '12px',
+                                        ? FontSize.large
+                                        : FontSize.small,
                                 color: seminarData.scenes[4].messages[0].color,
                             }}
                         >

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Style from './Comp1.module.css'
 
-const Comp1 = ({ active, showMessage, showDetailImage, sceneData }) => {
+const Comp1 = ({
+    active,
+    showMessage,
+    showDetailImage,
+    sceneData,
+    fontSize,
+}) => {
     const [img1Url, setImg1Url] = useState('')
     const [img2Url, setImg2Url] = useState('')
     const [message, setMessage] = useState('')
@@ -12,12 +18,17 @@ const Comp1 = ({ active, showMessage, showDetailImage, sceneData }) => {
         if (sceneData && sceneData.s1) {
             setImg1Url(sceneData.s1.imgs.img1)
             setImg2Url(sceneData.s1.imgs.img2)
-            const messageData = sceneData.s1.messages[0]
-            setMessage(messageData.context)
+            const { context, size, color } = sceneData.s1.messages[0]
+            setMessage(context)
             setMessageStyle({
                 // 인라인 스타일 객체 생성
-                fontSize: messageData.size === 'medium' ? '12px' : '24px',
-                color: messageData.color,
+                fontSize:
+                    size === 'small'
+                        ? fontSize.small
+                        : size === 'medium'
+                        ? fontSize.medium
+                        : fontSize.large,
+                color,
             })
         }
     }, [sceneData])

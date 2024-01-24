@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import Styles from './template2.module.css'
-
+import { FONT_SIZE as FontSize } from '../../../constants/config.js'
 const messageMotion = {
     s1: {
         s1_m1: {
@@ -675,16 +675,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene1.message[1].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene1.message[1].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene1.message[1]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene1.message[1]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene1.message[1].content}
@@ -695,16 +695,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene1.message[2].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene1.message[2].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene1.message[2]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene1.message[2]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene1.message[2].content}
@@ -735,16 +735,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene2.message[1].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene2.message[1].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene2.message[1]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene2.message[1]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[1].content}
@@ -755,16 +755,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene2.message[2].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene2.message[2].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene2.message[2]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene2.message[2]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[2].content}
@@ -775,16 +775,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene2.message[3].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene2.message[3].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene2.message[3]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene2.message[3]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[3].content}
@@ -795,16 +795,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene2.message[4].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene2.message[4].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene2.message[4]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene2.message[4]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene2.message[4].content}
@@ -835,16 +835,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene3.message[1].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene3.message[1].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene3.message[1]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene3.message[1]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[1].content}
@@ -855,16 +855,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene3.message[2].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene3.message[2].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene3.message[2]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene3.message[2]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[2].content}
@@ -875,16 +875,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene3.message[3].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene3.message[3].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene3.message[3]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene3.message[3]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[3].content}
@@ -895,16 +895,16 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene3.message[4].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene3.message[4].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene3.message[4]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene3.message[4]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' &&
+                                                  FontSize.large,
                                     }}
                                 >
                                     {data.scene3.message[4].content}
@@ -935,16 +935,15 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene4.message[1].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene4.message[1].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene4.message[1]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene4.message[1]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' && 32,
                                     }}
                                 >
                                     {data.scene4.message[1].content}
@@ -955,16 +954,15 @@ export default function Template2({ size, sceneData }) {
                                     style={{
                                         width: `${viewWidth * 0.8}px`,
                                         color: `${data.scene4.message[2].color}`,
-                                        fontSize: `${
+                                        fontSize:
                                             data.scene4.message[2].size ===
                                             'small'
-                                                ? 18
+                                                ? FontSize.small
                                                 : data.scene4.message[2]
                                                       .size === 'medium'
-                                                ? 25
+                                                ? FontSize.medium
                                                 : data.scene4.message[2]
-                                                      .size === 'large' && 32
-                                        }px`,
+                                                      .size === 'large' && 32,
                                     }}
                                 >
                                     {data.scene4.message[2].content}

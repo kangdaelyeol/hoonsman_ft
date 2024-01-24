@@ -1,0 +1,45 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    background-color: white;
+    border: 1px solid;
+    cursor: pointer;
+    padding-bottom: 15px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.wrapper img {
+    width: 200px;
+}
+
+.logodes {
+    text-wrap: nowrap;
+    font-weight: 700;
+    color: #16212b;
+    margin-top: 2px;
+    transform: translateY(-15px);
+    font-size: 24px;
+}
+
+@media screen and (max-width: 350px) {
+    .logodes {
+        font-size: 14px;
+        transform: translateY(-10px);
+    }
+    .wrapper img {
+        width: 150px;
+    }
+    .container {
+        padding-bottom: 4px;
+    }
+}

@@ -5,6 +5,7 @@ import Comp2 from './Comp2/Comp2'
 import Comp3 from './Comp3/Comp3'
 import Comp4 from './Comp4/Comp4'
 import Blank from './Blank/Blank'
+import { FONT_SIZE as FontSize } from '../../../constants/config.js'
 
 const Template3 = ({ size, sceneData }) => {
     const { width, height } = size
@@ -91,6 +92,7 @@ const Template3 = ({ size, sceneData }) => {
                     showMessage={showMessage1}
                     showDetailImage={showDetailImage}
                     sceneData={sceneData}
+                    fontSize={FontSize}
                 />
             </div>
             <div
@@ -103,6 +105,7 @@ const Template3 = ({ size, sceneData }) => {
                     showMessage1={showMessage2_1}
                     showMessage2={showMessage2_2}
                     sceneData={sceneData}
+                    fontSize={FontSize}
                 />
             </div>
             <div
@@ -118,6 +121,7 @@ const Template3 = ({ size, sceneData }) => {
                     showImage2={showImage2}
                     showImage3={showImage3}
                     sceneData={sceneData}
+                    fontSize={FontSize}
                 />
             </div>
             <div
@@ -129,6 +133,7 @@ const Template3 = ({ size, sceneData }) => {
                     active={activeComp === 'Comp4'}
                     showMessage4={showMessage4}
                     sceneData={sceneData}
+                    fontSize={FontSize}
                 />
             </div>
             <div
