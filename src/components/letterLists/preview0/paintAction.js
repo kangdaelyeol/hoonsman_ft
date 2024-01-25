@@ -117,7 +117,7 @@ export const paintMidToAll = (
     const drawCanvDefaultHeight = (canvasHeight / 100) * paintingBorderRange
 
     const CSYUp =
-        canvasHeight / 2 +
+        canvasHeight / 2 -
         drawCanvDefaultHeight -
         (canvasHeight / 2 - drawCanvDefaultHeight) * drawRatio
     const CSYDown = canvasHeight / 2 - drawCanvDefaultHeight
