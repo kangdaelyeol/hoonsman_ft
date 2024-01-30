@@ -1,1 +1,1 @@
-web: npm run serve-heroku
+web: bin/start-nginx-solo
