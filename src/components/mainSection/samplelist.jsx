@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Styles from './samplelist.module.css'
 
-import intro1img from '../../imgs/seminar/intro.png'
+import intro1img from '../../imgs/seminar/sample1.jpeg'
 import intro2img from '../../imgs/Promo_Image/Comp1_Main.png'
 import intro3img from '../../imgs/wedding_Image/img1.png'
 import intro4img from '../../imgs/template0/img1.png'
@@ -26,7 +26,7 @@ const SampleList = ({ setModalInfo, size, isDisabled }) => {
             id: 1,
             type: 1,
             thumbnail: intro1img,
-            title: '세미나 초대장',
+            title: '여행 초대장',
             description:
                 '이 샘플은 5개의 섹션 소개, 설명1, 설명2, 시간 및 위치, 맺음말로 구성되어있으며, 인터랙티브하지만 간단한 초대장을 만들 수 있습니다.',
         },
@@ -50,8 +50,8 @@ const SampleList = ({ setModalInfo, size, isDisabled }) => {
             id: 4,
             type: 0,
             thumbnail: intro4img,
-            title: '제목 4',
-            description: '샘플에 대한 설명 4',
+            title: '세미나 초대장',
+            description: '인터렉티브 디자인 편지를 만들어 보세요!',
         },
     ]
 

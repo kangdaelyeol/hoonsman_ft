@@ -7,11 +7,11 @@ import img6 from '../imgs/template0/img6.png'
 import img7 from '../imgs/template0/img7.png'
 import img8 from '../imgs/template0/img8.png'
 
-import s1img1 from '../imgs/seminar/intro.png'
-import s1img2 from '../imgs/seminar/desc1.png'
-import s1img3 from '../imgs/seminar/desc2.png'
-import s1img4 from '../imgs/seminar/location.png'
-import s1img5 from '../imgs/seminar/conclusion.png'
+import s1img1 from '../imgs/seminar/sample1.jpeg'
+import s1img2 from '../imgs/seminar/sample2.jpeg'
+import s1img3 from '../imgs/seminar/sample3.jpeg'
+import s1img4 from '../imgs/seminar/sample4.jpeg'
+import s1img5 from '../imgs/seminar/sample6.jpeg'
 
 import s2img1 from '../imgs/wedding_Image/img1.png'
 import s2img2 from '../imgs/wedding_Image/img2.png'
@@ -79,8 +79,8 @@ const SampleData = [
                 images: { image1: s1img1 },
                 messages: [
                     {
-                        text: '세미나에 대한 소개',
-                        size: 'large',
+                        text: '일본에 대한 소개',
+                        size: 'medium',
                         color: 'white',
                     },
                 ],
@@ -94,12 +94,12 @@ const SampleData = [
                 },
                 messages: [
                     {
-                        text: '키워드 1',
+                        text: '오사카',
                         size: 'large',
                         color: 'white',
                     },
                     {
-                        text: '세미나에 대한 설명 1',
+                        text: '좋은 풍경입니다',
                         size: 'small',
                         color: 'black',
                     },
@@ -114,12 +114,12 @@ const SampleData = [
                 },
                 messages: [
                     {
-                        text: '키워드 2',
+                        text: '교토',
                         size: 'large',
                         color: 'white',
                     },
                     {
-                        text: '세미나에 대한 설명 2',
+                        text: '멋진 기모노 입니다',
                         size: 'small',
                         color: 'black',
                     },
@@ -132,12 +132,12 @@ const SampleData = [
                 },
                 messages: [
                     {
-                        text: '세미나 위치',
+                        text: '교토의 거리',
                         size: 'large',
                         color: 'white',
                     },
                     {
-                        text: '시간과 날짜',
+                        text: '4월에 갔다 왔습니다',
                         size: 'medium',
                         color: 'white',
                     },
@@ -148,7 +148,7 @@ const SampleData = [
                 images: { image1: s1img5 },
                 messages: [
                     {
-                        text: '맺음말',
+                        text: '멋진 여행이었습니다!',
                         size: 'large',
                         color: 'white',
                     },

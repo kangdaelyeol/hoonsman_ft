@@ -7,6 +7,8 @@ import Template2 from '../letterLists/preview2/Template2'
 import Template0 from '../letterLists/preview0/Template0'
 import SampleData from '../../constants/sampleData'
 
+import { FONT_SIZE_CREATE } from '../../constants/config'
+
 const defaultSize = {
     width: 224,
     height: 400,
@@ -42,12 +44,14 @@ function Modal({ modalInfo, setModalInfo }) {
                         <Template1
                             size={defaultSize}
                             sceneData={SampleData[1]}
+                            fontSize={FONT_SIZE_CREATE}
                         />
                     )}
                     {id === 2 && (
                         <Template3
                             size={defaultSize}
                             sceneData={SampleData[3]}
+                            fontSize={FONT_SIZE_CREATE}
                         />
                     )}
 
@@ -55,12 +59,14 @@ function Modal({ modalInfo, setModalInfo }) {
                         <Template2
                             size={defaultSize}
                             sceneData={SampleData[2]}
+                            fontSize={FONT_SIZE_CREATE}
                         />
                     )}
                     {id === 4 && (
                         <Template0
                             size={defaultSize}
                             sceneData={SampleData[0]}
+                            fontSize={FONT_SIZE_CREATE}
                         />
                     )}
                 </div>
