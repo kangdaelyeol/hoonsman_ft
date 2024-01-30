@@ -1,3 +1,4 @@
+console.log('process.env', process.env)
 export const BASE_URL =
     process.env.NETLIFY === 'true'
         ? process.env.BASE_URL
