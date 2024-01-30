@@ -1,5 +1,6 @@
 class HttpReq {
     constructor(baseUrl) {
+        console.log('process.env', process.env, baseUrl)
         this.baseUrl = baseUrl
     }
 
