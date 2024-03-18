@@ -1,8 +1,98 @@
-# React + Vite
+# 2023 동계 카카오 현장실습 헌터조
+## [Demo](https://cozy-custard-614eff.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Table of contents
 
-Currently, two official plugins are available:
+1. [프로젝트 소개/로고](#hoonsletter-project)
+1. [팀명/팀(원) 소개](#team-hoons-man)
+1. [프로젝트 배경/목표](#배경)
+1. [동작 방식(프로세스)](#동작-방식)
+1. [개발/배포 환경](#개발--배포-환경)
+1. [테스트 환경](#테스트-환경)
+1. [시연 영상](#시연-영상)
+1. [회고](#회고)
+1. [활용/참고 정보](#활용--참고-정보)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## HoonsLetter Project
+
+사용자가 간단하게 초대장을 만들고 공유할 수 있는 웹 서비스
+
+로고
+![로고이미지](https://github.com/hoonsman/hoonsman/blob/main/hoonsman/public/img/aaa.png)
+
+
+## Team Hoon’s man
+
+**`Hunter`** - 조훈 멘토
+
+[**`Harry`**](https://github.com/kangdaelyeol) - 강대렬 팀장
+
+[**`Merlin`**](https://github.com/21divcert) - 김재형 팀원
+
+[**`JB`**](https://github.com/kjeok00) - 김지혁 팀원
+
+[**`Eggsy`**](https://github.com/khanna01) - 김한나 팀원
+
+
+## 프로젝트 배경 / 목표
+
+### 배경
+
+팀장 Harry의 [mybro](https://github.com/kangdaelyeol/mybro) 제작 경험을 바탕으로 사용자가 쉽게 원하는 이미지와 문구로 초대장을 커스터마이징하고 공유할 수 있는 웹 서비스 기획
+
+### 목표
+
+-  4가지의 초대장 샘플을 제공하여 샘플 디자인을 기반으로 사용자가 원하는 이미지와 문구로 초대장 커스터마이징 서비스 제공
+
+-   Open AI api를 활용하여 사용자가 키워드 입력 시 맞춤 문구 제공
+
+-   초대장 생성 시 모바일 형식의 URL 배포 서비스 제공
+
+
+## 동작 방식
+
+**사용자 시나리오**
+
+1. 서비스에 접속합니다.
+2. 사용자는 계정을 생성하거나 로그인합니다. 
+    1. ID
+    2. 구글
+3. 홈화면으로 이동합니다.
+4. 샘플초대장을 확인하고 원하는 샘플을 선택합니다.
+5. ‘초대장 만들기’ 옵션을 선택합니다.
+7. 사용자는 주제에 맞는 키워드를 입력합니다.
+8. ai가 추천하는 문구를 선택하거나 직접 문구를 작성합니다.
+9. 편집 화면으로 이동합니다.
+10. 사용자는 자신이 원하는 디자인으로 초대장을 커스터마이징합니다.
+    1. 사진 추가
+    2. 글자색, 글자 크기 설정
+    3. 적용 버튼을 눌러 확인
+12. 저장(생성)버튼을 눌러 초대장을 저장합니다.
+13. 생성된 초대장 URL을 복사하여 초대장을 공유합니다.
+14. URL을 공유받은 사용자는 URL을 통해 초대장을 확인합니다.
+
+
+## 개발 / 배포 환경
+
+**개발 환경**
+
+-   프론트엔드 : React.js
+-   백엔드 : Node.js
+-   인공지능 : Open AI Api
+
+**배포 환경**
+
+
+## 테스트 환경
+
+
+## 시연 영상
+
+[`바로가기`]()
+
+
+## 회고
+
+
+### 활용 / 참고 정보
